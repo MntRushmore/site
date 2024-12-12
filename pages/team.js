@@ -226,6 +226,41 @@ export default function Team({ team }) {
                     />
                   ))}
               </Grid>
+                    <Box
+  sx={{
+    bg: 'rgb(255, 191, 0 / 40%)', // golden yellow
+    p: 3,
+    borderRadius: '20px',
+    mt: 3
+  }}
+>
+  <Text
+    variant="headline"
+    mt={2}
+    mb={3}
+    as="h3"
+    sx={{ textAlign: 'center', fontSize: 4 }}
+  >
+    YSWS Team
+  </Text>
+  <Grid columns={[1, 2, null, 4]} gap={2}>
+    {team.current
+      ?.filter(member => member.department === 'YSWS')
+      .map(member => (
+        <Bio
+          img={member.avatar}
+          name={member.name}
+          teamRole={member.role}
+          text={member.bio}
+          pronouns={member.pronouns}
+          email={member.email}
+          href={member.website}
+          key={member.name}
+        />
+      ))}
+  </Grid>
+</Box>
+
             </Box>
             <br />
             <Box sx={{ textAlign: 'center', mt: 2, mb: [3, 4] }}>
